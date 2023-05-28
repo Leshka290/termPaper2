@@ -25,11 +25,11 @@ public class JavaController {
     }
 
     @GetMapping(value = "/remove")
-    public Question remove(@RequestParam("question") Question question) {
+    public Question remove(@RequestParam("question") String question) {
         return questionService.remove(question);
     }
 
-    @GetMapping("/find")
+    @GetMapping("/all")
     public Collection<Question> getAll() {
         return questionService.getAll();
     }

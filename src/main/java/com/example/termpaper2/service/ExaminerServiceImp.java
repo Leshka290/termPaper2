@@ -13,21 +13,21 @@ import java.util.Set;
 public class ExaminerServiceImp implements ExaminerService {
 
     private final QuestionService questionService;
-    Random random;
+    Random random = new Random();
 
     public ExaminerServiceImp(QuestionService questionService) {
         this.questionService = questionService;
     }
 
     public Collection<Question> getQuestions(int amount) {
-        if (amount >= questionService.getAll().size()) {
+        if (amount > questionService.getAll().size()) {
             throw new WrongNumberOfQuestionsException();
         }
 
         Set<Question> questions = new HashSet<>(amount);
         while (questions.size() != amount) {
             questions.add(questionService.getAll().stream()
-                    .skip(new Random().nextInt(questionService.getAll()
+                    .skip(random.nextInt(questionService.getAll()
                             .size())).findFirst().orElse(null));
         }
         return questions;

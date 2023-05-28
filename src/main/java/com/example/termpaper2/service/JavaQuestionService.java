@@ -4,7 +4,6 @@ import com.example.termpaper2.model.Question;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.Random;
 import java.util.Set;
 
 @Service
@@ -30,9 +29,12 @@ public class JavaQuestionService implements QuestionService{
 //    }
 
     @Override
-    public Question remove(Question question) {
-        questions.remove(question);
-        return question;
+    public Question remove(String question) {
+        Question q = questions.stream()
+                .filter(e -> e.getQuestion().equals(question))
+                .findAny().orElseThrow();
+        questions.remove(q);
+        return q;
     }
 
     @Override
