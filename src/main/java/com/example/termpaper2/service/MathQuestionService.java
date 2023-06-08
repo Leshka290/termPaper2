@@ -8,26 +8,25 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-public class JavaQuestionService implements QuestionService{
+public class MathQuestionService implements QuestionService{
 
-    private final QuestionRepository javaQuestionRepository;
+    QuestionRepository questionRepository;
 
-    public JavaQuestionService(@Qualifier("javaQuestionRepository") QuestionRepository javaQuestionRepository) {
-        this.javaQuestionRepository = javaQuestionRepository;
+    public MathQuestionService(@Qualifier("mathQuestionRepository") QuestionRepository questionRepository) {
+        this.questionRepository = questionRepository;
     }
-
     @Override
     public Question add(String question, String answer) {
-        return javaQuestionRepository.add(question, answer);
+        return questionRepository.add(question, answer);
     }
 
     @Override
     public Question remove(String question) {
-        return javaQuestionRepository.remove(question);
+        return questionRepository.remove(question);
     }
 
     @Override
     public Collection<Question> getAll() {
-        return javaQuestionRepository.getAll();
+        return questionRepository.getAll();
     }
 }

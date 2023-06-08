@@ -12,16 +12,16 @@ import static com.example.termpaper2.QuestionList.getQuestions;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class JavaQuestionServiceTest {
+public class MathQuestionServiceTest {
 
     private QuestionRepository questionRepository;
 
-    private JavaQuestionService questionService;
+    private MathQuestionService questionService;
 
     @BeforeEach
     public void setUp() {
         questionRepository = Mockito.mock(QuestionRepository.class);
-        questionService = new JavaQuestionService(questionRepository);
+        questionService = new MathQuestionService(questionRepository);
     }
 
     @Test

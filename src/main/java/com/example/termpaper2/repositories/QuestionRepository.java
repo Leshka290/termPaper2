@@ -1,14 +1,12 @@
-package com.example.termpaper2.service;
+package com.example.termpaper2.repositories;
 
 import com.example.termpaper2.model.Question;
 
 import java.util.Collection;
 
-public interface QuestionService {
+public interface QuestionRepository {
 
     Question add(String question, String answer);
-//    Question add(Question question);
     Question remove(String question);
     Collection<Question> getAll();
-//    Question getRandomQuestion();
 }
